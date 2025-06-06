@@ -1,0 +1,124 @@
+/* Map animations */
+
+/* Bin marker animation */
+.bin-marker-animation {
+  animation: marker-bounce 0.5s ease-out;
+}
+
+@keyframes marker-bounce {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Selected location animation */
+.selected-location-animation {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* MST line animation */
+.mst-line-animation {
+  animation: fade-in 1s ease-out;
+}
+
+/* Route path animation */
+.route-path-animation {
+  animation: draw-line 1.5s ease-out;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Map zoom and pan animations */
+.leaflet-map-animated {
+  transition: all 0.3s ease-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .leaflet-control-zoom {
+    margin-top: 60px !important;
+  }
+  
+  .leaflet-control-geocoder {
+    margin-top: 120px !important;
+  }
+}
+
+/* Mini map styles */
+.leaflet-control-minimap {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Fullscreen control styles */
+.leaflet-control-fullscreen a {
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  border-radius: 4px;
+}
+
+/* Search control styles */
+.leaflet-control-geocoder-form input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  width: 200px;
+}
+
+/* Legend styles */
+.map-legend {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  max-width: 250px;
+}
+
+.dark .map-legend {
+  background-color: rgba(30, 30, 30, 0.9);
+}

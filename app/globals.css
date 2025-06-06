@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 173 80% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 173 80% 94%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 173 80% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 173 70% 50%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 173 70% 16%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 173 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure all main containers use full width */
+  .w-full {
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+}
+
+/* Custom styles for the map */
+.leaflet-container {
+  @apply bg-gray-100 dark:bg-gray-800 transition-colors duration-300;
+}
+
+.leaflet-control-attribution {
+  @apply text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-black/80 transition-colors duration-300;
+}
+
+.leaflet-control-zoom {
+  @apply bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 transition-colors duration-300;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  @apply text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+}
+
+.leaflet-popup-tip {
+  @apply bg-white dark:bg-gray-800 transition-colors duration-300;
+}
+
+/* Canvas dark mode support */
+canvas {
+  @apply transition-colors duration-300;
+}
+
+/* Custom card styles */
+.card-gradient {
+  @apply bg-gradient-to-br from-white to-accent/20 dark:from-gray-900 dark:to-accent/5;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 dark:hover:shadow-primary/20;
+}
+
+/* Custom bin marker styles */
+.bin-marker {
+  @apply flex items-center justify-center rounded-full text-white font-bold shadow-md transition-all duration-300;
+}
+
+.fill-level-high {
+  @apply bg-destructive text-destructive-foreground animate-pulse;
+}
+
+.fill-level-medium {
+  @apply bg-warning text-warning-foreground;
+}
+
+.fill-level-low {
+  @apply bg-success text-success-foreground;
+}
+
+/* Route animation */
+.route-path {
+  @apply stroke-primary stroke-2 fill-none;
+  stroke-dasharray: 5;
+  animation: dash 3s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* Stat card styles */
+.stat-card {
+  @apply border border-primary/20 bg-gradient-to-br from-white to-primary/5 dark:from-gray-900 dark:to-primary/10 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+/* Button hover effects */
+.button-hover {
+  @apply transition-all duration-300 hover:shadow-md hover:shadow-primary/20 active:scale-95;
+}
+
+/* Form input focus styles */
+.input-focus {
+  @apply focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300;
+}
+
+/* Progress bar animation */
+.progress-animate {
+  @apply transition-all duration-1000 ease-in-out;
+}
+
+/* Tooltip styles */
+.custom-tooltip {
+  @apply bg-popover text-popover-foreground px-3 py-1.5 rounded-md shadow-lg border border-border text-sm;
+}
